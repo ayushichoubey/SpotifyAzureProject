@@ -1,0 +1,25 @@
+{
+	"name": "incremental_ingestion",
+	"properties": {
+		"description": "This is the pipeline which will pick the raw data from the source and put it to sink using incremental loads",
+		"activities": [
+			{
+				"name": "AzureSqlToLake",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"enableStaging": false
+				}
+			}
+		],
+		"annotations": []
+	}
+}
