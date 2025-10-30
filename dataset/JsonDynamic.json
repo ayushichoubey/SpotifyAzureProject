@@ -22,11 +22,11 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().p_folder",
+					"value": "@dataset().p_file",
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@dataset().p_file",
+					"value": "@dataset().p_folder",
 					"type": "Expression"
 				},
 				"fileSystem": {
