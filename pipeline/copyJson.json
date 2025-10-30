@@ -1,10 +1,10 @@
 {
-	"name": "incremental_ingestion",
+	"name": "copyJson",
 	"properties": {
-		"description": "This is the pipeline which will pick the raw data from the source and put it to sink using incremental loads",
+		"description": "Copying json file from git to my adls",
 		"activities": [
 			{
-				"name": "AzureSqlToLake",
+				"name": "Copy json",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
