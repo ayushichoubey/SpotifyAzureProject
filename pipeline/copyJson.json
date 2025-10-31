@@ -39,13 +39,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Json1",
+						"referenceName": "JsonGit",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Json2",
+						"referenceName": "JsonADLS",
 						"type": "DatasetReference"
 					}
 				]
