@@ -5,13 +5,21 @@
 			"referenceName": "azure_datalake",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"DirectoryName_cdc": {
+				"type": "String"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "cdc.json",
-				"folderPath": "json",
+				"folderPath": {
+					"value": "@dataset().DirectoryName_cdc",
+					"type": "Expression"
+				},
 				"fileSystem": "bronze"
 			}
 		},
