@@ -19,7 +19,7 @@
   },
  {
       "schema" : "dbo",
-      "table" : "DimUArtist",
+      "table" : "DimArtist",
       "cdc_col" : "updated_at",
       "from_date" : ""
   },
