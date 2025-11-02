@@ -1,0 +1,126 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "datafactoryspotifyproject"
+		},
+		"HttpGit_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'HttpGit'"
+		},
+		"azure_datalake_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'azure_datalake'"
+		},
+		"azure_sql_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'azure_sql'"
+		},
+		"githubLS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'githubLS'"
+		},
+		"HttpGit_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com"
+		},
+		"HttpGit_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admimayushi"
+		},
+		"azure_datalake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://stgaspotifyazureproject.dfs.core.windows.net/"
+		},
+		"azure_sql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "spotifyprojectserverazure.database.windows.net"
+		},
+		"azure_sql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "azurespotifyproject"
+		},
+		"azure_sql_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admimayushi"
+		},
+		"githubLS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com"
+		},
+		"githubLS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admimayushi"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "datafactoryspotifyproject_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"HttpGit_password": {
+						"value": "[parameters('HttpGit_password')]"
+					},
+					"azure_datalake_accountKey": {
+						"value": "[parameters('azure_datalake_accountKey')]"
+					},
+					"azure_sql_password": {
+						"value": "[parameters('azure_sql_password')]"
+					},
+					"githubLS_password": {
+						"value": "[parameters('githubLS_password')]"
+					},
+					"HttpGit_properties_typeProperties_url": {
+						"value": "[parameters('HttpGit_properties_typeProperties_url')]"
+					},
+					"HttpGit_properties_typeProperties_userName": {
+						"value": "[parameters('HttpGit_properties_typeProperties_userName')]"
+					},
+					"azure_datalake_properties_typeProperties_url": {
+						"value": "[parameters('azure_datalake_properties_typeProperties_url')]"
+					},
+					"azure_sql_properties_typeProperties_server": {
+						"value": "[parameters('azure_sql_properties_typeProperties_server')]"
+					},
+					"azure_sql_properties_typeProperties_database": {
+						"value": "[parameters('azure_sql_properties_typeProperties_database')]"
+					},
+					"azure_sql_properties_typeProperties_userName": {
+						"value": "[parameters('azure_sql_properties_typeProperties_userName')]"
+					},
+					"githubLS_properties_typeProperties_url": {
+						"value": "[parameters('githubLS_properties_typeProperties_url')]"
+					},
+					"githubLS_properties_typeProperties_userName": {
+						"value": "[parameters('githubLS_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

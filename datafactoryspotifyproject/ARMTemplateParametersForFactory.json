@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "datafactoryspotifyproject"
+		},
+		"HttpGit_password": {
+			"value": ""
+		},
+		"azure_datalake_accountKey": {
+			"value": ""
+		},
+		"azure_sql_password": {
+			"value": ""
+		},
+		"githubLS_password": {
+			"value": ""
+		},
+		"HttpGit_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"HttpGit_properties_typeProperties_userName": {
+			"value": "admimayushi"
+		},
+		"azure_datalake_properties_typeProperties_url": {
+			"value": "https://stgaspotifyazureproject.dfs.core.windows.net/"
+		},
+		"azure_sql_properties_typeProperties_server": {
+			"value": "spotifyprojectserverazure.database.windows.net"
+		},
+		"azure_sql_properties_typeProperties_database": {
+			"value": "azurespotifyproject"
+		},
+		"azure_sql_properties_typeProperties_userName": {
+			"value": "admimayushi"
+		},
+		"githubLS_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"githubLS_properties_typeProperties_userName": {
+			"value": "admimayushi"
+		}
+	}
+}
