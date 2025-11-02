@@ -14,7 +14,7 @@
  {
       "schema" : "dbo",
       "table" : "DimDate",
-      "cdc_col" : "date_key",
+      "cdc_col" : "datea",
       "from_date" : ""
   },
  {
