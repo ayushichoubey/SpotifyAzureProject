@@ -1,1 +1,17 @@
-
+[  
+  {
+    "DirectoryName_cdc" : "DimArtist_cdc"
+  },
+  {
+    "DirectoryName_cdc" : "DimDate_cdc"
+  },
+  {
+    "DirectoryName_cdc" : "DimTrack_cdc"
+  },
+  {
+    "DirectoryName_cdc" : "DimUser_cdc"
+  },
+  {
+    "DirectoryName_cdc" : "FactStream_cdc"
+  }
+]
