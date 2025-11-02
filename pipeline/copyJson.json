@@ -4,53 +4,96 @@
 		"description": "Copying json file from git to my adls",
 		"activities": [
 			{
-				"name": "Copy json",
-				"type": "Copy",
+				"name": "ForEach1",
+				"type": "ForEach",
 				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "JsonSource",
-						"storeSettings": {
-							"type": "HttpReadSettings",
-							"requestMethod": "GET"
-						},
-						"formatSettings": {
-							"type": "JsonReadSettings"
-						}
+					"items": {
+						"value": "@pipeline().parameters.arrayofCDC",
+						"type": "Expression"
 					},
-					"sink": {
-						"type": "JsonSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "JsonWriteSettings"
+					"isSequential": false,
+					"activities": [
+						{
+							"name": "Copy json",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "JsonSource",
+									"storeSettings": {
+										"type": "HttpReadSettings",
+										"requestMethod": "GET"
+									},
+									"formatSettings": {
+										"type": "JsonReadSettings"
+									}
+								},
+								"sink": {
+									"type": "JsonSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "JsonWriteSettings"
+									}
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "JsonGit",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "JsonADLS",
+									"type": "DatasetReference",
+									"parameters": {
+										"DirectoryName_cdc": {
+											"value": "@item().DirectoryName_cdc",
+											"type": "Expression"
+										}
+									}
+								}
+							]
 						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"arrayofCDC": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"DirectoryName_cdc": "DimArtist_cdc"
 					},
-					"enableStaging": false
-				},
-				"inputs": [
 					{
-						"referenceName": "Json1",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
+						"DirectoryName_cdc": "DimDate_cdc"
+					},
 					{
-						"referenceName": "Json2",
-						"type": "DatasetReference"
+						"DirectoryName_cdc": "DimTrack_cdc"
+					},
+					{
+						"DirectoryName_cdc": "DimUser_cdc"
+					},
+					{
+						"DirectoryName_cdc": "FactStream_cdc"
 					}
 				]
 			}
-		],
+		},
 		"annotations": []
 	}
 }
