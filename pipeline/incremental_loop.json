@@ -20,13 +20,13 @@
 							"type": "Copy",
 							"dependsOn": [
 								{
-									"activity": "Last_CDC",
+									"activity": "current",
 									"dependencyConditions": [
 										"Succeeded"
 									]
 								},
 								{
-									"activity": "current",
+									"activity": "Last_CDC",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -366,7 +366,7 @@
 					{
 						"schema": "dbo",
 						"table": "DimDate",
-						"cdc_col": "date_key",
+						"cdc_col": "date",
 						"from_date": ""
 					},
 					{
